@@ -2,12 +2,14 @@
 
 ## Description
 
-Das folgende Beispiel zeigt, wie man einen einfachen Webservice mit REST-API mit Python und Flask erstellt. Hierbei können Personen angelegt und deren Email-Adressen und andere Werte geändert oder hinzugefügt werden. Die Daten werden in der Datei `data.json` gespeichert.
+Das folgende Beispiel zeigt, wie man einen einfachen Webservice (Server) mit REST-API mit `Python` und `Flask` erstellt. Hierbei können Personen angelegt und deren Email-Adressen und andere Werte geändert oder hinzugefügt werden. Die Daten werden in der Datei `data.json` gespeichert.
 
 ## Requirements
 
+Installieren des Projekts mit `pdm`:
+
 ```bash
-pip install -r requirements.txt`
+pdm install
 ```
 
 ## Usage
