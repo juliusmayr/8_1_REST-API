@@ -2,7 +2,7 @@ import requests
 
 ## Update a person
 # Define the URL of the API
-url = "http://127.0.0.1:5000/person/Testname2"
+url = "http://127.0.0.1:5000/person/123"
 
 # Send a POST request to the API
 response = requests.delete(url)

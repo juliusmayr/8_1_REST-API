@@ -1,42 +1,23 @@
 [
   {
-    "name": "John",
-    "test_result": "julian@mail.at"
+    "id": "123",
+    "first_name": "Julian",
+    "last_name": "Huber",
+    "birth_year": "1900"
   },
   {
-    "name": "Julian",
-    "email": "julian@mail.at"
+    "id": "124",
+    "first_name": "Dr.",
+    "last_name": "No"
   },
   {
-    "name": "Timmy",
-    "email": "timmy2@mail.at"
+    "id": "125",
+    "first_name": "Dr.",
+    "last_name": "No"
   },
   {
-    "name": "Timmy",
-    "email": "timmy2@mail.at"
-  },
-  {
-    "name": "Frank",
-    "email": "Frank@mail.at"
-  },
-  {
-    "name": "Frankie",
-    "email": "frankie@mail.at"
-  },
-  {
-    "name": "Frankie"
-  },
-  {
-    "name": "Frankie"
-  },
-  {
-    "name": "Frankie"
-  },
-  {
-    "name": "TestName",
-    "email": "TestName@mail.at"
-  },
-  {
-    "name": "Testname2"
+    "id": "122",
+    "first_name": "Dr.",
+    "last_name": "No"
   }
 ]

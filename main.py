@@ -2,6 +2,7 @@
 # encoding: utf-8
 import json
 from flask import Flask, request, jsonify
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -26,30 +27,33 @@ def create_person():
         records.append(record)
     with open('data.json', 'w') as f:
         f.write(json.dumps(records, indent=2))
-    return jsonify(record)
+    response = jsonify(record)
+    response.status_code = 201
+    response.headers['Location'] = f"/person/{record['id']}"
+    return response
 
-# GET a person by name
-@app.route('/person/<name>', methods=['GET'])
-def get_person(name):
+# GET a person by id
+@app.route('/person/<id>', methods=['GET'])
+def get_person(id):
 
     with open('data.json', 'r') as f:
         data = f.read()
         records = json.loads(data)
         for record in records:
-            if record['name'] == name:
+            if record['id'] == id:
                 return jsonify(record)
         return jsonify({'error': 'data not found'})
     
 # PUT (update a person)
-@app.route('/person/<name>', methods=['PUT'])
+@app.route('/person/<id>', methods=['PUT'])
 
-def update_person(name):
+def update_person(id):
     record = json.loads(request.data)
     with open('data.json', 'r') as f:
         data = f.read()
         records = json.loads(data)
         for i in range(len(records)):
-            if records[i]['name'] == name:
+            if records[i]['id'] == id:
                 records[i] = record
                 with open('data.json', 'w') as f:
                     f.write(json.dumps(records, indent=2))
@@ -57,15 +61,15 @@ def update_person(name):
         return jsonify({'error': 'data not found'})
 
 # DELETE a person
-@app.route('/person/<name>', methods=['DELETE'])
+@app.route('/person/<id>', methods=['DELETE'])
 
-def delete_person(name):
+def delete_person(id):
 
     with open('data.json', 'r') as f:
         data = f.read()
         records = json.loads(data)
         for i in range(len(records)):
-            if records[i]['name'] == name:
+            if records[i]['id'] == id:
                 record = records.pop(i)
                 with open('data.json', 'w') as f:
                     f.write(json.dumps(records, indent=2))
@@ -73,5 +77,10 @@ def delete_person(name):
                 return jsonify(record)
         return jsonify({'error': 'data not found'})
 
+
+# GET all persons
+@app.route('/', methods=['GET'])
+def landing_page():
+    return render_template('index.html')
 
 app.run(debug=True)

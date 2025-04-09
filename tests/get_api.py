@@ -14,7 +14,7 @@ print(response.text)
 ## Get a person by name
 # Define the URL of the API
 
-url = "http://127.0.0.1:5000/person/TestName"
+url = "http://127.0.0.1:5000/person/123"
 
 # Send a GET request to the API with the name as a query parameter
 response = requests.get(url)

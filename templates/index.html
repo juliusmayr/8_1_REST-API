@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Usage</title>
+    <!-- Use Flask's url_for to link the CSS file -->
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the REST API</h1>
+    </header>
+    <section class="api-docs">
+        <h2>API Dokumentation</h2>
+    
+        <p>Diese REST API erlaubt es, Personen zu verwalten (lesen, hinzufügen, aktualisieren und löschen). Die Daten werden in einer lokalen JSON-Datei gespeichert.</p>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>HTTP Methode</th>
+                    <th>Pfad</th>
+                    <th>Beschreibung</th>
+                    <th>Request Body</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/person/</td>
+                    <td>Alle Personen abrufen</td>
+                    <td>–</td>
+                    <td><code>JSON-Array</code> aller Personen</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/person/</td>
+                    <td>Neue Person erstellen</td>
+                    <td><code>{"id": "123", "name": "Anna"}</code></td>
+                    <td>Erstellte Person (Status 201)</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/person/&lt;id&gt;</td>
+                    <td>Eine bestimmte Person abrufen</td>
+                    <td>–</td>
+                    <td>Person als JSON oder Fehler</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/person/&lt;id&gt;</td>
+                    <td>Person aktualisieren</td>
+                    <td><code>{"id": "123", "name": "Max"}</code></td>
+                    <td>Aktualisierte Person oder Fehler</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/person/&lt;id&gt;</td>
+                    <td>Person löschen</td>
+                    <td>–</td>
+                    <td>Gelöschte Person oder Fehler</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <p>Hinweis: Die Daten werden in der Datei <code>data.json</code> gespeichert und sind daher nicht persistent bei Server-Neustart (außer du speicherst sie bewusst).</p>
+    </section>
+    <div class="container">
+        <button id="show-person-btn" onclick="fetchAllPersons()">Show Person</button>
+        <div id="data-container"></div>
+    </div>
+
+    <script src="../static/script.js"></script>
+    
+</body>
+</html>
